@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
 
       <div className="footer-right">
         <a
-          href="https://github.com/your-github-repo-url"
+          href="https://github.com/naveenm612/todo-app"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -22,11 +22,11 @@ const Footer: React.FC = () => {
         </a>{" "}
         •{" "}
         <a
-          href="https://www.netlify.com/"
+          href="https://todo-app-seven-pearl.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Deployed on Netlify
+          Deployed on Vercel
         </a>
       </div>
     </footer>
