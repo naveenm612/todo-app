@@ -1,0 +1,218 @@
+.todo-item {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.todo-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+  background: #f9fafb;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-top: 4px;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.todo-item input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.todo-item input[type="checkbox"]:hover {
+  border-color: #3b82f6;
+}
+
+.todo-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.todo-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.todo-description {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.todo-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.todo-meta small {
+  font-size: 12px;
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.todo-category {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.todo-category:contains("Shopping") {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.todo-category:contains("Work") {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.todo-category:contains("Personal") {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.todo-due {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.todo-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.confirm-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #333;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  text-align: center;
+  min-width: 240px;
+}
+
+.confirm-dialog p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.confirm-actions .yes-btn,
+.confirm-actions .no-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease-in-out;
+}
+
+.confirm-actions .yes-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.confirm-actions .yes-btn:hover {
+  background-color: #c62828;
+}
+
+.confirm-actions .no-btn {
+  background-color: #757575;
+  color: white;
+}
+
+.confirm-actions .no-btn:hover {
+  background-color: #616161;
+}
+.todo-main.disabled {
+  pointer-events: none;  
+  opacity: 0.5;     
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .todo-item {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .todo-title {
+    font-size: 14px;
+  }
+
+  .todo-meta small {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+}
+

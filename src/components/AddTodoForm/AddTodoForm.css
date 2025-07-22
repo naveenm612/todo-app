@@ -1,0 +1,113 @@
+.form-container {
+  text-align: center;
+  margin: 2rem auto;
+}
+.dark .form-group label {
+  color: #fff;
+}
+.btn-add {
+  background: linear-gradient(to right, #7c3aed, #38bdf8);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: background 0.3s ease;
+}
+
+.btn-add:hover {
+  background: linear-gradient(to right, #6d28d9, #0ea5e9);
+}
+
+.form-card {
+  /* background: #fff; */
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); */
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #111827;
+}
+
+.form-group label span {
+  color: red;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 1px #7c3aed;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 80px;
+}
+
+.form-group .error-text {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.btn-cancel {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}

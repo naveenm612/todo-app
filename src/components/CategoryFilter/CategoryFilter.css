@@ -1,0 +1,90 @@
+/* CategoryFilter.css */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-title {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+.dark .filter-title {
+  color: #fff;
+}
+
+.filter-buttons1 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-button1 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid #e1e5e9;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button1:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+}
+
+.filter-button1.active {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  color: #ffffff;
+}
+
+.filter-button1.active:hover {
+  background-color: #5856eb;
+  border-color: #5856eb;
+}
+
+.filter-count {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 18px;
+  text-align: center;
+}
+
+.filter-button1:not(.active) .filter-count {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+/* Status Filter Specific Styles */
+.status-filters .filter-button1 {
+  border-radius: 6px;
+}
+
+/* Category Filter Icons */
+.category-icon {
+  font-size: 16px;
+}
+
+/* .work-icon::before { content: "💼"; }
+.personal-icon::before { content: "❤️"; }
+.shopping-icon::before { content: "🛒"; }
+.all-icon::before { content: "📋"; } */
