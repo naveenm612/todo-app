@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
-import { useTodos } from "./hooks/useTodos";
+import { Todo, useTodos } from "./hooks/useTodos";
 import AddTodoForm from "./components/AddTodoForm/AddTodoForm";
 import TodoItem from "./components/TodoItem/TodoItem";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -15,10 +15,11 @@ type FilterType = "All" | "Active" | "Completed" | "Overdue";
 const AppContent = () => {
   const { darkMode, toggleTheme } = useTheme();
   const {
-    todos, addTodo, toggleComplete, deleteTodo,
+    todos, addTodo, toggleComplete, deleteTodo, editTodo,
     setFilter, setCategoryFilter, setSearchTerm
   } = useTodos();
 
+  const [editingTodo, setEditingTodo] = useState<Todo | null>(null);
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
 
   const handleFilterChange = (filter: FilterType) => {
@@ -26,19 +27,18 @@ const AppContent = () => {
     setFilter(filter);
   };
 
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "n") {
-        document.querySelector<HTMLInputElement>(".form input")?.focus();
-      }
-      if (e.key.toLowerCase() === "d" && e.ctrlKey) {
-        toggleTheme();
-        e.preventDefault();
-      }
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, [toggleTheme]);
+  const handleEditClick = (todo: Todo) => {
+    setEditingTodo(todo);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingTodo(null);
+  };
+
+  const handleEditSubmit = (id: string, updatedFields: Omit<Todo, "id" | "completed">) => {
+    editTodo(id, updatedFields);
+    setEditingTodo(null);
+  };
 
   return (
     <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
@@ -54,12 +54,14 @@ const AppContent = () => {
         }}
       />
       <div className="main-content">
-        <AddTodoForm onAdd={addTodo} />
-        <SearchBar onSearch={setSearchTerm} />
-        <CategoryFilter
-          todos={todos}
-          onFilter={setCategoryFilter}
+        <AddTodoForm
+          onAdd={addTodo}
+          onEdit={handleEditSubmit}
+          editingTodo={editingTodo}
+          onCancelEdit={handleCancelEdit}
         />
+        <SearchBar onSearch={setSearchTerm} />
+        <CategoryFilter todos={todos} onFilter={setCategoryFilter} />
 
         <div className="todos-container">
           {todos.length === 0 ? (
@@ -73,6 +75,7 @@ const AppContent = () => {
                 todo={todo}
                 onToggle={() => toggleComplete(todo.id)}
                 onDelete={() => deleteTodo(todo.id)}
+                onEditClick={handleEditClick}
               />
             ))
           )}

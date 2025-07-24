@@ -131,6 +131,33 @@
   transition: all 0.2s ease;
   opacity: 0;
 }
+.edit-btn {
+  position: absolute;
+  top: 8px;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.todo-item:hover .edit-btn {
+  opacity: 1;
+}
+
+.edit-btn:hover {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+.edit-btn svg,
+.delete-btn svg {
+  font-size: 20px;
+}
+
 
 .todo-item:hover .delete-btn {
   opacity: 1;
