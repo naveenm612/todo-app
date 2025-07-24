@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme }) => {
     <header className={`header ${darkMode ? "dark-mode" : ""}`}>
       <div className="header-container">
         <div className="header-content">
-          <h1 className="main-title">Todo App</h1>
+          <h1 className="main-title">Todo Form </h1>
 
           <button
             onClick={onToggleTheme}
